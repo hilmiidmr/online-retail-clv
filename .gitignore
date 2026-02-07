@@ -10,6 +10,7 @@ venv/
 
 # data (keep raw datasets out of git)
 data/
+!data/
 !data/clv_predictions.parquet
 !data/segment_summary.csv
 !data/coverage_stats.json

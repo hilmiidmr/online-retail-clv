@@ -1,0 +1,11 @@
+{
+  "total_customers": 5878,
+  "repeat_customers": 4189,
+  "new_customers": 1689,
+  "top_1pct_customers": 42,
+  "top_1pct_share_of_total_clv": 0.3056763931579895,
+  "total_revenue": 17374804.268000003,
+  "total_orders": 36969,
+  "date_start": "2009-12-01",
+  "date_end": "2011-12-09"
+}
