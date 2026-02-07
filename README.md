@@ -1,26 +1,152 @@
-# Online Retail II — CLV Project
+# Online Retail II — CLV Analytics Project
 
-End-to-end customer analytics on **Online Retail II (UCI)**: data cleaning, EDA, RFM segmentation, cohort retention, and CLV modeling.
+## English
+This project delivers end-to-end customer analytics and CLV (Customer Lifetime Value) modeling on the Online Retail II (UCI) dataset. The results are summarized in a Streamlit dashboard designed for a professional data science presentation.
 
-## Project Goal
-Build a customer-level understanding of purchasing behavior and prepare features for CLV modeling.
+### Project Goal
+Understand customer behavior, build RFM segments, analyze retention, and estimate 12‑month revenue-based CLV to support business decisions.
 
-## Notebooks
-- `notebooks/01_eda_rfm.ipynb` — EDA + RFM segmentation (CLV prep)
-- `notebooks/02_cohort_retention.ipynb` — cohort & retention analysis (planned)
-- `notebooks/03_clv_modeling.ipynb` — CLV modeling (planned)
+### Workflow
+1. Data cleaning and EDA
+2. RFM segmentation
+3. Cohort and retention analysis
+4. BG/NBD + Gamma-Gamma CLV modeling
+5. Exporting dashboard-ready datasets
 
-## Data
-The raw dataset is **not included** in this repository (file size).
+### Notebooks
+- `notebooks/01_eda_rfm.ipynb` — Data cleaning, EDA, RFM segmentation
+- `notebooks/02_cohort_retention.ipynb` — Cohort and retention analysis (customer and revenue)
+- `notebooks/03_clv_modeling.ipynb` — CLV modeling and segment-level outputs
 
-Source (Kaggle):
+### Streamlit Dashboard
+The dashboard presents a clean story flow:
+- Overview KPIs and insights
+- Performance (revenue, orders, AOV, geography)
+- Retention (cohort heatmaps and average curve)
+- Segments (CLV and RFM views)
+- Customers (filtered CLV table)
+- CLV distribution
+
+#### Live Dashboard Link
+
+
+### Setup
+1. Create and activate a virtual environment.
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### Data
+The raw dataset is not included in the repository.
+
+Source:
 https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci/data
 
-To run the notebooks:
-1. Download the dataset from Kaggle
-2. Place it here: `data/online_retail_II.csv`
+Place the file here:
+`data/online_retail_II.csv`
 
-> If the downloaded file name is different, rename it to `online_retail_II.csv` (or update the path inside the notebook).
+If the file name is different, rename it or update the notebook path.
 
-## Tech Stack
-Python, Pandas, Matplotlib/Seaborn
+### Export Dashboard Data
+After running the notebooks, export summary data for the dashboard:
+```bash
+python app/export_dashboard_data.py
+```
+
+Generated files:
+- `data/clv_predictions.parquet`
+- `data/segment_summary.csv`
+- `data/rfm_segment_summary.csv`
+- `data/monthly_kpis.csv`
+- `data/country_revenue.csv`
+- `data/cohort_retention_customers.csv`
+- `data/cohort_retention_revenue.csv`
+- `data/cohort_size.csv`
+- `data/cohort_avg_retention.csv`
+- `data/coverage_stats.json`
+
+### Run the Dashboard
+```bash
+streamlit run app/app.py
+```
+
+### Tech Stack
+Python, Pandas, NumPy, Matplotlib/Seaborn, Lifetimes (CLV), Streamlit, Altair
+
+---
+
+## Türkçe
+Bu proje, Online Retail II (UCI) verisi üzerinde uçtan uca müşteri analitiği ve CLV (Müşteri Yaşam Boyu Değeri) modellemesi yapar. Sonuçlar, profesyonel bir veri bilimi sunumu formatında hazırlanmış Streamlit dashboardunda özetlenir.
+
+### Proje Hedefi
+Müşteri davranışını anlamak, RFM segmentleri oluşturmak, elde tutma analizi yapmak ve 12 aylık gelir bazlı CLV tahminleriyle iş kararlarını desteklemek.
+
+### Proje Akışı
+1. Veri temizleme ve EDA
+2. RFM segmentasyonu
+3. Kohort ve elde tutma analizi
+4. BG/NBD + Gamma-Gamma ile CLV modelleme
+5. Dashboard için özet veri setlerinin export edilmesi
+
+### Notebooklar
+- `notebooks/01_eda_rfm.ipynb` — Veri temizleme, EDA, RFM segmentasyonu
+- `notebooks/02_cohort_retention.ipynb` — Kohort ve elde tutma analizi (müşteri ve gelir)
+- `notebooks/03_clv_modeling.ipynb` — CLV modelleme ve segment çıktıları
+
+### Streamlit Dashboard
+Dashboard, iş tarafı için sade ve anlaşılır bir hikaye akışı sunar:
+- Özet KPI ve içgörüler
+- Performans (gelir, sipariş, AOV, ülke kırılımı)
+- Elde tutma (cohort heatmap ve ortalama eğri)
+- Segmentler (CLV ve RFM görünümü)
+- Müşteriler (filtrelenebilir CLV tablosu)
+- CLV dağılımı
+
+#### Canlı Dashboard Linki
+Canlıya alındıktan sonra eklenecek:
+- `TODO: Streamlit dashboard linki`
+
+### Kurulum
+1. Sanal ortam oluşturup aktif edin.
+2. Gereksinimleri yükleyin:
+```bash
+pip install -r requirements.txt
+```
+
+### Veri
+Ham veri dosyası repoda yoktur.
+
+Kaynak:
+https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci/data
+
+Dosyayı buraya koyun:
+`data/online_retail_II.csv`
+
+Dosya adı farklıysa yeniden adlandırın veya notebook pathini güncelleyin.
+
+### Dashboard Verisini Üretme
+Notebookları çalıştırdıktan sonra dashboard için özet veri dosyalarını üretin:
+```bash
+python app/export_dashboard_data.py
+```
+
+Üretilen dosyalar:
+- `data/clv_predictions.parquet`
+- `data/segment_summary.csv`
+- `data/rfm_segment_summary.csv`
+- `data/monthly_kpis.csv`
+- `data/country_revenue.csv`
+- `data/cohort_retention_customers.csv`
+- `data/cohort_retention_revenue.csv`
+- `data/cohort_size.csv`
+- `data/cohort_avg_retention.csv`
+- `data/coverage_stats.json`
+
+### Dashboard Çalıştırma
+```bash
+streamlit run app/app.py
+```
+
+### Tech Stack
+Python, Pandas, NumPy, Matplotlib/Seaborn, Lifetimes (CLV), Streamlit, Altair
