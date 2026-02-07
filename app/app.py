@@ -371,10 +371,11 @@ def main():
             st.info(t["retention_data_missing"])
         else:
             cohort_order = sorted(retention["CohortMonth"].unique())
+            show_values = st.checkbox(t["show_values"], value=False)
             tab_c, tab_r = st.tabs([t["customer_retention_tab"], t["revenue_retention_tab"]])
             with tab_c:
                 st.subheader(t["cohort_heatmap_customers"])
-                heat = (
+                heat_base = (
                     alt.Chart(retention)
                     .mark_rect()
                     .encode(
@@ -389,10 +390,22 @@ def main():
                     )
                     .properties(height=380)
                 )
-                st.altair_chart(heat, width="stretch")
+                if show_values:
+                    text = (
+                        alt.Chart(retention)
+                        .mark_text(size=9, color="#111111")
+                        .encode(
+                            x=alt.X("CohortIndex:O"),
+                            y=alt.Y("CohortMonth:O", sort=cohort_order),
+                            text=alt.Text("retention_rate:Q", format=".0%"),
+                        )
+                    )
+                    st.altair_chart(heat_base + text, width="stretch")
+                else:
+                    st.altair_chart(heat_base, width="stretch")
             with tab_r:
                 st.subheader(t["cohort_heatmap_revenue"])
-                heat = (
+                heat_base = (
                     alt.Chart(retention_revenue)
                     .mark_rect()
                     .encode(
@@ -407,7 +420,19 @@ def main():
                     )
                     .properties(height=380)
                 )
-                st.altair_chart(heat, width="stretch")
+                if show_values:
+                    text = (
+                        alt.Chart(retention_revenue)
+                        .mark_text(size=9, color="#111111")
+                        .encode(
+                            x=alt.X("CohortIndex:O"),
+                            y=alt.Y("CohortMonth:O", sort=cohort_order),
+                            text=alt.Text("retention_rate:Q", format=".0%"),
+                        )
+                    )
+                    st.altair_chart(heat_base + text, width="stretch")
+                else:
+                    st.altair_chart(heat_base, width="stretch")
 
             st.caption(t["retention_note"])
 
