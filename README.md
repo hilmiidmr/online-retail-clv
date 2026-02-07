@@ -28,7 +28,7 @@ The dashboard presents a clean story flow:
 - CLV distribution
 
 #### Live Dashboard Link
-
+https://online-retail-clv.streamlit.app/
 
 ### Setup
 1. Create and activate a virtual environment.
@@ -104,8 +104,7 @@ Dashboard, iş tarafı için sade ve anlaşılır bir hikaye akışı sunar:
 - CLV dağılımı
 
 #### Canlı Dashboard Linki
-Canlıya alındıktan sonra eklenecek:
-- `TODO: Streamlit dashboard linki`
+https://online-retail-clv.streamlit.app/
 
 ### Kurulum
 1. Sanal ortam oluşturup aktif edin.
