@@ -1,0 +1,33 @@
+# Git
+.git/
+.gitignore
+
+# Python sanal ortam
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Büyük veri dosyaları
+data/online_retail_II.csv
+data/online_retail_clean.csv
+data/online_retail_clean.parquet
+data/rfm_segments.csv
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# IDE / editor
+.vscode/
+.idea/

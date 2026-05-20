@@ -1,0 +1,24 @@
+services:
+  streamlit:
+    build: .
+    ports:
+      - "8502:8501"
+    volumes:
+      - ./data:/app/data
+
+  jupyter:
+    build: .
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./notebooks:/app/notebooks
+      - ./data:/app/data
+    command: >
+      jupyter lab
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --notebook-dir=/app/notebooks
+      --ServerApp.token=
+      --ServerApp.password=

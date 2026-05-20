@@ -37,6 +37,27 @@ https://online-retail-clv.streamlit.app/
 pip install -r requirements.txt
 ```
 
+### Run with Docker
+
+Requires [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+
+1. Clone the repository and open a terminal in the project root.
+2. Start the Streamlit dashboard and Jupyter Lab:
+
+```bash
+docker compose up --build -d
+```
+
+3. Open in your browser:
+   - **Dashboard:** http://localhost:8502
+   - **Jupyter Lab:** http://localhost:8889/lab
+
+4. Stop services:
+
+```bash
+docker compose down
+```
+
 ### Data
 The raw dataset is not included in the repository.
 
@@ -72,7 +93,7 @@ streamlit run app/app.py
 ```
 
 ### Tech Stack
-Python, Pandas, NumPy, Matplotlib/Seaborn, Lifetimes (CLV), Streamlit, Altair
+Python, Pandas, NumPy, Matplotlib/Seaborn, Lifetimes (CLV), Streamlit, Altair, Docker, Docker Compose
 
 ---
 
@@ -113,6 +134,27 @@ https://online-retail-clv.streamlit.app/
 pip install -r requirements.txt
 ```
 
+### Docker ile çalıştırma
+
+[Docker Desktop](https://www.docker.com/products/docker-desktop/) kurulu olmalıdır.
+
+1. Repoyu klonlayın ve proje kökünde terminal açın.
+2. Streamlit dashboard ve Jupyter Lab'i başlatın:
+
+```bash
+docker compose up --build -d
+```
+
+3. Tarayıcıda açın:
+   - **Dashboard:** http://localhost:8502
+   - **Jupyter Lab:** http://localhost:8889/lab
+
+4. Durdurmak için:
+
+```bash
+docker compose down
+```
+
 ### Veri
 Ham veri dosyası repoda yoktur.
 
@@ -148,4 +190,4 @@ streamlit run app/app.py
 ```
 
 ### Tech Stack
-Python, Pandas, NumPy, Matplotlib/Seaborn, Lifetimes (CLV), Streamlit, Altair
+Python, Pandas, NumPy, Matplotlib/Seaborn, Lifetimes (CLV), Streamlit, Altair, Docker, Docker Compose
